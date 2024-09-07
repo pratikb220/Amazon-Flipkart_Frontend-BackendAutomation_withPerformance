@@ -1,0 +1,2 @@
+# Amazon-Flipkart_Frontend-BackendAutomation_withPerformance
+Here I have made FrontEnd automation frameork with PlayWright and Javascript to fetch the prices of same product and compare them. Also, I have made API automation to fetch the price of Amazon Search Product API. Recorded the script for Flipkart from Search to AddToCart in JMeter to verify the performance of Flipkart under several load conditions.
