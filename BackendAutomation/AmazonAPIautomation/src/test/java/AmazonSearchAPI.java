@@ -1,3 +1,4 @@
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 
@@ -19,7 +20,7 @@ public class AmazonSearchAPI {
         String userName = "pratiik_DkHJ4";
         String password = "Rockstone123=";
 
-        Response response = given()
+        Response response = RestAssured.given()
                 .auth()
                 .preemptive()
                 .basic(userName, password)
