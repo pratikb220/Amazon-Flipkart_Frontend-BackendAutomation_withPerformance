@@ -2,8 +2,11 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SearchAPIamazon {
+    private static final Logger logger = LoggerFactory.getLogger(SearchAPIamazon.class);
     @Test
     public void SearchAPI(){
         String apiURL = "https://realtime.oxylabs.io/v1/queries";
@@ -30,12 +33,12 @@ public class SearchAPIamazon {
             //System.out.println("Amazon Search Result: " + response.prettyPrint());
             int firstProductPriceBackend = response.jsonPath().getInt("results[0].content.results.organic[0].price");
             String firstProductTitle = response.jsonPath().getString("results[0].content.results.organic[0].title");
-            System.out.println(firstProductTitle + ": " + firstProductPriceBackend);
+            logger.info(firstProductTitle + ": " + firstProductPriceBackend);
             //savePriceToFile(firstProductPriceBackend, "amazon_BackendPrice.txt");
 
         }
         else{
-            System.out.println("Failed to fetch results. Status code: " + response.statusCode());
+            logger.error("Failed to fetch results. Status code: " + response.statusCode());
         }
     }
 }
