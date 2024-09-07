@@ -32,19 +32,19 @@ public class AmazonSearchAPI {
             int firstProductPriceBackend = response.jsonPath().getInt("results[0].content.results.organic[0].price");
             String firstProductTitle = response.jsonPath().getString("results[0].content.results.organic[0].title");
             System.out.println(firstProductTitle + ": " + firstProductPriceBackend);
-            savePriceToFile(firstProductPriceBackend, "amazon_BackendPrice.txt");
+            //savePriceToFile(firstProductPriceBackend, "amazon_BackendPrice.txt");
 
         }
         else{
             System.out.println("Failed to fetch results. Status code: " + response.statusCode());
         }
     }
-    public static void savePriceToFile(int price, String fileName){
-        try(FileWriter fileWriter = new FileWriter(fileName)){
-            fileWriter.write(String.valueOf(price));
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-    }
+//    public static void savePriceToFile(int price, String fileName){
+//        try(FileWriter fileWriter = new FileWriter(fileName)){
+//            fileWriter.write(String.valueOf(price));
+//        }
+//        catch(Exception e){
+//            e.printStackTrace();
+//        }
+//    }
 }
